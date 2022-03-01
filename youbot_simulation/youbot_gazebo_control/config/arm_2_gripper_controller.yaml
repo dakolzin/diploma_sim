@@ -1,0 +1,8 @@
+gripper_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - gripper_2_finger_joint_l
+    - gripper_2_finger_joint_r
+  gains:
+    gripper_2_finger_joint_l: {p: 40.0, d: 1.0}
+    gripper_2_finger_joint_r: {p: 40.0, d: 1.0}
