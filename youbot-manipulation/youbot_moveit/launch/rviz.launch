@@ -1,0 +1,16 @@
+<launch>
+
+    <arg name="load_robot_description" default="true"/>
+
+    <arg name="robot_description" default="robot_description"/>
+
+    <!-- Load universal robot description format (URDF) -->
+    <param if="$(arg load_robot_description)" name="$(arg robot_description)" command="$(find xacro)/xacro.py '$(find youbot_description)/robots/youbot.urdf.xacro'"/>
+
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+    <node name="rviz" pkg="rviz" type="rviz" args=" -d $(find youbot_moveit)/launch/default.rviz"/>
+    
+    <!--param name="use_gui" value="false"/>
+    </node-->
+</launch>
